@@ -11,9 +11,23 @@ import (
 
 var rootCmd = &cobra.Command{
 	Use:   "cortex [domain]",
-	Short: "Subdomain detector CLI tool",
-	Long:  `Cortex is a command-line tool to detect subdomains associated with a domain name.`,
-	Args:  cobra.ExactArgs(1),
+	Short: "A production-grade subdomain resolver and reconnaissance tool",
+	Long: `Cortex is a comprehensive subdomain discovery tool that combines multiple
+reconnaissance techniques to find subdomains for a given domain.
+
+Features:
+- DNS enumeration with custom wordlists
+- Certificate Transparency log searches  
+- Passive reconnaissance from multiple sources
+- Brute force subdomain discovery
+- Detailed markdown reports
+- Cross-platform support
+
+Example:
+  cortex example.com
+  cortex --threads 200 --timeout 10s example.com
+  cortex --no-brute --no-passive example.com`,
+	Args: cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		utils.PrintBanner()
 		// Create context with cancellation
