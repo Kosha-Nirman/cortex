@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Kosha-Nirman/cortex/src/helper"
+	"github.com/Kosha-Nirman/cortex/src/utils"
 	"github.com/spf13/cobra"
 )
 
@@ -15,27 +15,13 @@ var rootCmd = &cobra.Command{
 	Long:  `Cortex is a command-line tool to detect subdomains associated with a domain name.`,
 	Args:  cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
+		utils.PrintBanner()
 		// Create context with cancellation
 		_, cancel := context.WithCancel(context.Background())
 		defer cancel()
 
 		domain := args[0]
 		fmt.Printf("Detecting subdomains for: %s\n", domain)
-
-		// Find potential subdomains
-		subdomains := helper.FindSubdomains(domain)
-
-		fmt.Println("Found subdomains:")
-		for _, subdomain := range subdomains {
-			fmt.Println(subdomain)
-		}
-
-		// // Generate the report
-		// err := utils.GenerateReport(domain, subdomains)
-		// if err != nil {
-		// 	fmt.Println("Error generating report:", err)
-		// 	os.Exit(1)
-		// }
 
 		return nil
 	},
