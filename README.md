@@ -1,16 +1,17 @@
 <p align="center">
-  <img src="logo.svg" alt="Helix Logo">
+  <img src="logo.svg" alt="Cortex Logo">
 </p>
 
-# 🎪 Helix
+# 🎯 Cortex
 
+<!-- ![Docker](https://img.shields.io/badge/Docker-enabled-2496ED?logo=docker&logoColor=white) -->
 ![Go Version](https://img.shields.io/badge/Go-1.25%2B-00ADD8?logo=go&logoColor=white)
 ![Pre-commit](https://img.shields.io/badge/Pre--commit-hooks-FAB040?logo=precommit&logoColor=white)
 ![Commitlint](https://img.shields.io/badge/Commitlint-enforced-000000?logo=commitlint&logoColor=white)
-![Testing](https://img.shields.io/badge/Testing-enabled-success?logo=go&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-yellow?logo=open-source-initiative&logoColor=white)
+<!-- ![Testing](https://img.shields.io/badge/Testing-enabled-success?logo=go&logoColor=white) -->
 
-**Helix** is a structured Go starter template designed for building modular, maintainable, and scalable applications. It follows Go best practices and industry standards to help you bootstrap production-ready projects with minimal setup.
+**Cortex** is a production-grade subdomain discovery and reconnaissance tool built in Go. It combines multiple discovery techniques to find subdomains for a target domain and generates comprehensive markdown reports.
 
 ---
 
@@ -74,7 +75,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) fi
 
 ## 🙌 Acknowledgments
 
-- Inspired by **Go best practices** and **clean architecture principles**
-- Built for developers who value **maintainable** and **scalable** code
-- Named **Helix** for its spiral structure that represents growth and evolution
-- Made with ❤️ to accelerate Go development and reduce boilerplate
+- Inspired by tools like **Subfinder**, **Amass**, and **Sublist3r**
+- Built with ❤️ for the security research community
+- Named **Cortex** for its role as the central intelligence processor
+- Special thanks to the Go community for excellent networking libraries
