@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/Kosha-Nirman/cortex/src/domain"
+	"github.com/Kosha-Nirman/cortex/src/config"
 	"github.com/Kosha-Nirman/cortex/src/utils"
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
@@ -54,7 +54,7 @@ Example:
 
 		targetDomain := args[0]
 
-		resolverConfig := &domain.ResolverConfig{
+		resolverConfig := &config.ResolverConfig{
 			Timeout:       timeout,
 			Threads:       threads,
 			DNSServers:    dnsServers,
