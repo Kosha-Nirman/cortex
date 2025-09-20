@@ -1,6 +1,8 @@
 package domain
 
 import (
+	"fmt"
+	"net"
 	"strings"
 	"time"
 )
@@ -54,4 +56,29 @@ func (s *Subdomain) IsValid() bool {
 	}
 
 	return len(s.Name) <= 253
+}
+
+func (s *Subdomain) Resolve() error {
+	if s.Name == "" {
+		return fmt.Errorf("subdomain name cannot be empty")
+	}
+
+	ips, err := net.LookupIP(s.Name)
+	if err != nil {
+		s.IsActive = false
+		return err
+	}
+
+	s.IPAddresses = make([]string, 0, len(ips))
+	for _, ip := range ips {
+		s.IPAddresses = append(s.IPAddresses, ip.String())
+	}
+
+	cname, err := net.LookupCNAME(s.Name)
+	if err == nil && cname != s.Name+"." {
+		s.CNAMEs = append(s.CNAMEs, strings.TrimSuffix(cname, "."))
+	}
+
+	s.IsActive = len(s.IPAddresses) > 0
+	return nil
 }
