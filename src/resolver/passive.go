@@ -64,7 +64,14 @@ func (p *PassiveResolver) searchHackerTarget(ctx context.Context, targetDomain s
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if cerr := resp.Body.Close(); cerr != nil && err == nil {
+			// if there was no earlier error, return the close error
+			err = cerr
+		} else if cerr != nil {
+			err = fmt.Errorf("%v; close error: %w", err, cerr)
+		}
+	}()
 
 	if resp.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("hackertarget API returned status code: %d", resp.StatusCode)
@@ -111,7 +118,14 @@ func (p *PassiveResolver) searchThreatCrowd(ctx context.Context, targetDomain st
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if cerr := resp.Body.Close(); cerr != nil && err == nil {
+			// if there was no earlier error, return the close error
+			err = cerr
+		} else if cerr != nil {
+			err = fmt.Errorf("%v; close error: %w", err, cerr)
+		}
+	}()
 
 	if resp.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("threatcrowd API returned status code: %d", resp.StatusCode)

@@ -58,7 +58,14 @@ func (c *CertificateResolver) searchCrtSh(ctx context.Context, targetDomain stri
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if cerr := resp.Body.Close(); cerr != nil && err == nil {
+			// if there was no earlier error, return the close error
+			err = cerr
+		} else if cerr != nil {
+			err = fmt.Errorf("%v; close error: %w", err, cerr)
+		}
+	}()
 
 	if resp.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("crt.sh API returned status code: %d", resp.StatusCode)
@@ -128,7 +135,11 @@ func (c *CertificateResolver) GetCertificateInfo(domain string) (map[string]any,
 	if err != nil {
 		return nil, err
 	}
-	defer conn.Close()
+	defer func() {
+		if cerr := conn.Close(); cerr != nil {
+			fmt.Printf("warning: failed to close TLS connection: %v\n", cerr)
+		}
+	}()
 
 	cert := conn.ConnectionState().PeerCertificates[0]
 

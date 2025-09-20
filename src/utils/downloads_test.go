@@ -29,7 +29,11 @@ func TestEnsureDirectoryExists(t *testing.T) {
 	tempDir := os.TempDir()
 	testDir := filepath.Join(tempDir, "cortex-test", "nested", "directory")
 
-	defer os.RemoveAll(filepath.Join(tempDir, "cortex-test"))
+	defer func() {
+		if err := os.RemoveAll(filepath.Join(tempDir, "cortex-test")); err != nil {
+			t.Fatalf("failed to remove temp dir: %v", err)
+		}
+	}()
 
 	if err := EnsureDirectoryExists(testDir); err != nil {
 		t.Fatalf("EnsureDirectoryExists() failed: %v", err)

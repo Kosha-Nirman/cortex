@@ -59,7 +59,11 @@ func loadWordlistFromFile(path string) ([]string, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to open wordlist file: %w", err)
 	}
-	defer file.Close()
+	defer func() {
+		if err := file.Close(); err != nil {
+			fmt.Printf("failed to close file: %v\n", err)
+		}
+	}()
 
 	var wordlist []string
 	scanner := bufio.NewScanner(file)
