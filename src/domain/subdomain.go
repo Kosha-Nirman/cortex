@@ -82,3 +82,23 @@ func (s *Subdomain) Resolve() error {
 	s.IsActive = len(s.IPAddresses) > 0
 	return nil
 }
+
+func (sr *ScanResult) CalculateStats() {
+	sr.TotalFound = len(sr.Subdomains)
+	sr.ActiveSubs = 0
+
+	sourcesMap := make(map[string]bool)
+	for _, sub := range sr.Subdomains {
+		if sub.IsActive {
+			sr.ActiveSubs++
+		}
+		sourcesMap[sub.Source] = true
+	}
+
+	sr.Sources = make([]string, 0, len(sourcesMap))
+	for source := range sourcesMap {
+		sr.Sources = append(sr.Sources, source)
+	}
+
+	sr.Duration = sr.EndTime.Sub(sr.StartTime).String()
+}
