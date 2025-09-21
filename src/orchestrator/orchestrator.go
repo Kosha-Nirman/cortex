@@ -146,7 +146,7 @@ func (o *Orchestrator) DiscoverSubdomains(ctx context.Context, targetDomain stri
 			defer func() { <-semaphore }()
 
 			if err := s.Resolve(); err != nil {
-				fmt.Printf("failed to resolve subdomain %s: %v", s.Name, err)
+				fmt.Printf("failed to resolve subdomain %s: %v\n", s.Name, err)
 			}
 		}(sub)
 	}
