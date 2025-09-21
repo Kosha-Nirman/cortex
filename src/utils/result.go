@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 
 	"github.com/Kosha-Nirman/cortex/src/domain"
 	"github.com/fatih/color"
@@ -33,10 +34,18 @@ func PrintResults(result *domain.ScanResult) {
 					ip = sub.IPAddresses[0]
 				}
 
+				// Colorize source conditionally
+				src := sub.Source
+				if strings.Contains(strings.ToLower(src), "hackertarget") {
+					src = color.RedString(src) // make HackerTarget red
+				} else {
+					src = color.YellowString(src)
+				}
+
 				row := []string{
 					color.GreenString(sub.Name),
 					color.CyanString(ip),
-					color.YellowString(sub.Source),
+					src,
 				}
 				ok := table.Append(row)
 				if ok != nil {
