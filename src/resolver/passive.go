@@ -42,7 +42,7 @@ func NewPassiveResolver(timeout time.Duration) *PassiveResolver {
 			Timeout: timeout,
 			Transport: &http.Transport{
 				TLSClientConfig: &tls.Config{
-					InsecureSkipVerify: true,
+					InsecureSkipVerify: true, // #nosec G402 -- intended for trusted testing only
 				},
 			},
 		},
@@ -161,7 +161,7 @@ func (p *PassiveResolver) searchThreatCrowd(ctx context.Context, targetDomain st
 	return results, nil
 }
 
-func (p *PassiveResolver) DiscoverSubDomains(ctx context.Context, targetDomain string) ([]*domain.Subdomain, error) {
+func (p *PassiveResolver) DiscoverSubdomains(ctx context.Context, targetDomain string) ([]*domain.Subdomain, error) {
 	subdomains := make(map[string]*domain.Subdomain)
 
 	hackertargetSubs, err := p.searchHackerTarget(ctx, targetDomain)

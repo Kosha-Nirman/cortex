@@ -37,7 +37,7 @@ func GetDownloadsPath() (string, error) {
 	}
 
 	if _, err := os.Stat(downloadsPath); os.IsNotExist(err) {
-		if err := os.MkdirAll(downloadsPath, 0755); err != nil {
+		if err := os.MkdirAll(downloadsPath, 0750); err != nil {
 			return "", err
 		}
 	}
@@ -47,7 +47,7 @@ func GetDownloadsPath() (string, error) {
 
 func EnsureDirectoryExists(path string) error {
 	if _, err := os.Stat(path); os.IsNotExist(err) {
-		return os.MkdirAll(path, 0755)
+		return os.MkdirAll(path, 0750)
 	}
 	return nil
 }

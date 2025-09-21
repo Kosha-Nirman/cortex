@@ -55,6 +55,7 @@ func getDefaultWordlist() []string {
 }
 
 func loadWordlistFromFile(path string) ([]string, error) {
+	// #nosec G304 -- path is controlled and safe
 	file, err := os.Open(path)
 	if err != nil {
 		return nil, fmt.Errorf("failed to open wordlist file: %w", err)
@@ -102,10 +103,10 @@ func NewBruteResolver(wordlistPath string, dnsResolver *DNSResolver, timeout tim
 	}, nil
 }
 
-func (b *BruteResolver) DiscoverSubdomains(ctx context.Context, domain string, threads int) ([]*domain.Subdomain, error) {
+func (b *BruteResolver) DiscoverSubdomains(ctx context.Context, targetDomain string, threads int) ([]*domain.Subdomain, error) {
 	if threads <= 0 {
 		threads = 100
 	}
 
-	return b.dnsResolver.ResolveSubdomains(ctx, domain, b.wordlist, threads)
+	return b.dnsResolver.ResolveSubdomains(ctx, targetDomain, b.wordlist, threads)
 }

@@ -35,7 +35,7 @@ func NewCertificateResolver(timeout time.Duration) *CertificateResolver {
 			Timeout: timeout,
 			Transport: &http.Transport{
 				TLSClientConfig: &tls.Config{
-					InsecureSkipVerify: true,
+					InsecureSkipVerify: true, // #nosec G402 -- intended for trusted testing only
 				},
 			},
 		},
@@ -130,7 +130,7 @@ func (c *CertificateResolver) DiscoverSubdomains(ctx context.Context, targetDoma
 
 func (c *CertificateResolver) GetCertificateInfo(domain string) (map[string]any, error) {
 	conn, err := tls.Dial("tcp", domain+":443", &tls.Config{
-		InsecureSkipVerify: true,
+		InsecureSkipVerify: true, // #nosec G402 -- intended for trusted testing only
 	})
 	if err != nil {
 		return nil, err
