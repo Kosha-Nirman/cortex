@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/Kosha-Nirman/cortex/src/config"
+	"github.com/Kosha-Nirman/cortex/src/orchestrator"
 	"github.com/Kosha-Nirman/cortex/src/utils"
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
@@ -49,7 +50,7 @@ Example:
 	RunE: func(cmd *cobra.Command, args []string) error {
 		utils.PrintBanner()
 		// Create context with cancellation
-		_, cancel := context.WithCancel(context.Background())
+		ctx, cancel := context.WithCancel(context.Background())
 		defer cancel()
 
 		targetDomain := args[0]
@@ -75,6 +76,20 @@ Example:
 			resolverConfig.EnableDNS, resolverConfig.EnableCRT,
 			resolverConfig.EnableBrute, resolverConfig.EnablePassive)
 		fmt.Println()
+
+		fmt.Printf("🔍 Starting subdomain discovery...\n\n")
+
+		orchestrator, err := orchestrator.NewOrchestrator(resolverConfig)
+		if err != nil {
+			return fmt.Errorf("failed to create resolver: %w", err)
+		}
+
+		result, err := orchestrator.DiscoverSubdomains(ctx, targetDomain)
+		if err != nil {
+			return fmt.Errorf("scan failed: %w", err)
+		}
+
+		utils.PrintResults(result)
 
 		return nil
 	},
@@ -122,5 +137,4 @@ func init() {
 	rootCmd.MarkFlagsMutuallyExclusive("dns", "no-dns")
 	rootCmd.MarkFlagsMutuallyExclusive("brute", "no-brute")
 	rootCmd.MarkFlagsMutuallyExclusive("passive", "no-passive")
-
 }
