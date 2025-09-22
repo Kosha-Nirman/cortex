@@ -3,6 +3,7 @@
 # Variables
 BINARY_NAME=cortex
 BINARY_PATH=./bin/$(BINARY_NAME)
+SOURCE_PATH=src/main.go
 
 # Colors
 GREEN=\033[0;32m
@@ -20,11 +21,15 @@ install: ## 📦 Install dependencies
 	@go mod download && go mod tidy
 	@echo "$(GREEN)✅ Dependencies installed$(NC)"
 
+build: ## 🔨 Build binary
+	@echo "$(YELLOW)🔨 Building $(BINARY_NAME)...$(NC)"
+	@mkdir -p bin
+	@go build -o $(BINARY_PATH) $(SOURCE_PATH)
+	@echo "$(GREEN)✅ Binary built: $(BINARY_PATH)$(NC)"
+
 dev: ## 🚀 Run in development mode
 	@echo "$(YELLOW)🚀 Running in development mode...$(NC)"
-	@go run src/cmd/main.go
-
-run: dev ## 🏃 Alias for dev
+	@go run $(SOURCE_PATH) $(filter-out $@,$(MAKECMDGOALS))
 
 test: ## 🧪 Run tests
 	@echo "$(YELLOW)🧪 Running tests...$(NC)"
