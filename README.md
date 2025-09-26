@@ -7,6 +7,7 @@
 ![Go Version](https://img.shields.io/badge/Go-1.25%2B-00ADD8?logo=go&logoColor=white)
 ![Pre-commit](https://img.shields.io/badge/Pre--commit-hooks-FAB040?logo=precommit&logoColor=white)
 ![Commitlint](https://img.shields.io/badge/Commitlint-enforced-000000?logo=commitlint&logoColor=white)
+[![Unit Tests](https://github.com/Kosha-Nirman/cortex/actions/workflows/unit-test.yml/badge.svg)](https://github.com/Kosha-Nirman/cortex/actions/workflows/unit-test.yml)
 ![License](https://img.shields.io/badge/License-MIT-yellow?logo=open-source-initiative&logoColor=white)
 
 **Cortex** is a production-grade subdomain discovery and reconnaissance tool built in Go. It combines multiple discovery techniques to find subdomains for a target domain and generates comprehensive markdown reports.
