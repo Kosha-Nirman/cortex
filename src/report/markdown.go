@@ -167,7 +167,7 @@ func (m *MarkdownGenerator) GenerateReport(result *domain.ScanResult) (string, e
 
 	content := m.buildMarkdownContent(result)
 
-	if err := os.WriteFile(filepath, []byte(content), 0644); err != nil {
+	if err := os.WriteFile(filepath, []byte(content), 0600); err != nil {
 		return "", fmt.Errorf("failed to write report file: %w", err)
 	}
 
