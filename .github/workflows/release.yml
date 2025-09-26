@@ -28,21 +28,21 @@ jobs:
       - name: Build Binary
         run: |
           mkdir -p dist
-          GOOS=linux GOARCH=amd64 go build -o dist/gaia-linux-amd64 src/main.go
-          GOOS=darwin GOARCH=arm64 go build -o dist/gaia-darwin-arm64 src/main.go
-          GOOS=windows GOARCH=amd64 go build -o dist/gaia-windows-amd64.exe src/main.go
+          GOOS=linux GOARCH=amd64 go build -o dist/cortex-linux-amd64 src/main.go
+          GOOS=darwin GOARCH=arm64 go build -o dist/cortex-darwin-arm64 src/main.go
+          GOOS=windows GOARCH=amd64 go build -o dist/cortex-windows-amd64.exe src/main.go
 
       - name: Compress Binaries
         run: |
           cd dist
-          zip gaia-linux-amd64.zip gaia-linux-amd64
-          zip gaia-darwin-arm64.zip gaia-darwin-arm64
-          zip gaia-windows-amd64.zip gaia-windows-amd64.exe
+          zip cortex-linux-amd64.zip cortex-linux-amd64
+          zip cortex-darwin-arm64.zip cortex-darwin-arm64
+          zip cortex-windows-amd64.zip cortex-windows-amd64.exe
 
       - name: Generate Release Notes
         id: release-notes
         run: |
-          echo "# gaia ${{ github.ref_name }} 🚀" >> release-notes.md
+          echo "# cortex ${{ github.ref_name }} 🚀" >> release-notes.md
           echo "" >> release-notes.md
           echo "## ✨ Features" >> release-notes.md
           echo "" >> release-notes.md
@@ -51,7 +51,7 @@ jobs:
           echo "## 🛠 Installation" >> release-notes.md
           echo "" >> release-notes.md
           echo "For macOS, Linux, and Windows:" >> release-notes.md
-          echo "1. Download the latest release binary from the [Releases](https://github.com/tejastn10/gaia/releases) page." >> release-notes.md
+          echo "1. Download the latest release binary from the [Releases](https://github.com/Kosha-nirman/cortex/releases) page." >> release-notes.md
           echo "2. Extract the binary and add it to your system’s PATH." >> release-notes.md
           echo "" >> release-notes.md
 
