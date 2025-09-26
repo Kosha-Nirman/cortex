@@ -8,6 +8,7 @@ import (
 
 	"github.com/Kosha-Nirman/cortex/src/config"
 	"github.com/Kosha-Nirman/cortex/src/orchestrator"
+	"github.com/Kosha-Nirman/cortex/src/report"
 	"github.com/Kosha-Nirman/cortex/src/utils"
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
@@ -90,6 +91,18 @@ Example:
 		}
 
 		utils.PrintResults(result)
+
+		reportGen, err := report.NewMarkdownGenerator(outputDir)
+		if err != nil {
+			return fmt.Errorf("failed to create report generator: %w", err)
+		}
+
+		reportPath, err := reportGen.GenerateReport(result)
+		if err != nil {
+			return fmt.Errorf("failed to generate report: %w", err)
+		}
+
+		fmt.Printf("\n📋 Report saved: %s\n", color.GreenString(reportPath))
 
 		return nil
 	},
