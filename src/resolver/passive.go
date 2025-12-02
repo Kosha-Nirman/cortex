@@ -58,7 +58,7 @@ func (p *PassiveResolver) searchHackerTarget(ctx context.Context, targetDomain s
 		return nil, err
 	}
 
-	req.Header.Set("User-Agent", "Cortex-SubdomainResolver/1.0.0")
+	req.Header.Set("User-Agent", "Cortex-SubdomainResolver/1.0.1")
 
 	resp, err := p.client.Do(req)
 	if err != nil {
@@ -112,7 +112,7 @@ func (p *PassiveResolver) searchThreatCrowd(ctx context.Context, targetDomain st
 		return nil, err
 	}
 
-	req.Header.Set("User-Agent", "Cortex-SubdomainResolver/1.0.0")
+	req.Header.Set("User-Agent", "Cortex-SubdomainResolver/1.0.1")
 
 	resp, err := p.client.Do(req)
 	if err != nil {

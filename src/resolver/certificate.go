@@ -52,7 +52,7 @@ func (c *CertificateResolver) searchCrtSh(ctx context.Context, targetDomain stri
 		return nil, err
 	}
 
-	req.Header.Set("User-Agent", "Cortex-SubdomainResolver/1.0.0")
+	req.Header.Set("User-Agent", "Cortex-SubdomainResolver/1.0.1")
 
 	resp, err := c.client.Do(req)
 	if err != nil {
