@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Kosha-Nirman/cortex/src/domain"
+	"github.com/rivetron/cortex/src/domain"
 	"github.com/fatih/color"
 	"github.com/olekukonko/tablewriter"
 )

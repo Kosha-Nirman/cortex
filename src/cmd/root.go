@@ -6,10 +6,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/Kosha-Nirman/cortex/src/config"
-	"github.com/Kosha-Nirman/cortex/src/orchestrator"
-	"github.com/Kosha-Nirman/cortex/src/report"
-	"github.com/Kosha-Nirman/cortex/src/utils"
+	"github.com/rivetron/cortex/src/config"
+	"github.com/rivetron/cortex/src/orchestrator"
+	"github.com/rivetron/cortex/src/report"
+	"github.com/rivetron/cortex/src/utils"
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )

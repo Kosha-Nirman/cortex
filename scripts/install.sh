@@ -18,8 +18,8 @@ else
   exit 1
 fi
 
-VERSION=$(curl -s https://api.github.com/repos/kosha-nirman/cortex/releases/latest | jq -r '.tag_name')
-BASE_URL="https://github.com/kosha-nirman/cortex/releases/download/$VERSION"
+VERSION=$(curl -s https://api.github.com/repos/rivetron/cortex/releases/latest | jq -r '.tag_name')
+BASE_URL="https://github.com/rivetron/cortex/releases/download/$VERSION"
 FILE="$BINARY.zip"
 
 # Download the binary

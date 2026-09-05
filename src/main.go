@@ -1,6 +1,6 @@
 package main
 
-import "github.com/Kosha-Nirman/cortex/src/cmd"
+import "github.com/rivetron/cortex/src/cmd"
 
 func main() {
 	cmd.Execute()
