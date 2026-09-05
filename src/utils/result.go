@@ -6,9 +6,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Kosha-Nirman/cortex/src/domain"
 	"github.com/fatih/color"
 	"github.com/olekukonko/tablewriter"
+	"github.com/rivetron/cortex/src/domain"
 )
 
 func PrintResults(result *domain.ScanResult) {

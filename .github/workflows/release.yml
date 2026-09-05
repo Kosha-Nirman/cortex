@@ -51,7 +51,7 @@ jobs:
           echo "## 🛠 Installation" >> release-notes.md
           echo "" >> release-notes.md
           echo "For macOS, Linux, and Windows:" >> release-notes.md
-          echo "1. Download the latest release binary from the [Releases](https://github.com/Kosha-nirman/cortex/releases) page." >> release-notes.md
+          echo "1. Download the latest release binary from the [Releases](https://github.com/rivetron/cortex/releases) page." >> release-notes.md
           echo "2. Extract the binary and add it to your system’s PATH." >> release-notes.md
           echo "" >> release-notes.md
 

@@ -1,4 +1,4 @@
-module github.com/Kosha-Nirman/cortex
+module github.com/rivetron/cortex
 
 go 1.27.1
 

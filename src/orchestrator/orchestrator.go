@@ -6,9 +6,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Kosha-Nirman/cortex/src/config"
-	"github.com/Kosha-Nirman/cortex/src/domain"
-	"github.com/Kosha-Nirman/cortex/src/resolver"
+	"github.com/rivetron/cortex/src/config"
+	"github.com/rivetron/cortex/src/domain"
+	"github.com/rivetron/cortex/src/resolver"
 )
 
 type Orchestrator struct {

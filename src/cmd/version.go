@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/Kosha-Nirman/cortex/src/utils"
+	"github.com/rivetron/cortex/src/utils"
 	"github.com/spf13/cobra"
 )
 
