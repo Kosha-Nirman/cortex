@@ -24,5 +24,5 @@ func PrintBanner() {
 		`
 	fmt.Printf("%s\n", color.RedString(banner))
 	fmt.Printf("%s\n", color.WhiteString("         Subdomain Resolver & Reconnaissance Tool v"+version))
-	fmt.Printf("%s\n\n", color.YellowString("              https://github.com/Kosha-Nirman/cortex"))
+	fmt.Printf("%s\n\n", color.YellowString("              https://github.com/rivetron/cortex"))
 }

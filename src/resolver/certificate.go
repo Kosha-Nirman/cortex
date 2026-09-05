@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Kosha-Nirman/cortex/src/domain"
+	"github.com/rivetron/cortex/src/domain"
 )
 
 type CertificateResolver struct {

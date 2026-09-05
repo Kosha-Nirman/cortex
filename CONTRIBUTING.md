@@ -8,7 +8,7 @@ Your contributions help improve the project and make it more powerful for securi
 ## 📌 Getting Started
 
 1. **Fork the Repository**
-   Click the **Fork** button on the top-right corner of the [repository](https://github.com/Kosha-Nirman/cortex) to create your own copy.
+   Click the **Fork** button on the top-right corner of the [repository](https://github.com/rivetron/cortex) to create your own copy.
 
 2. **Clone the Repository**
 
@@ -121,7 +121,7 @@ cortex/
 
 ## ✅ Submitting a Pull Request
 
-1. Navigate to the original repository: [Cortex](https://github.com/Kosha-Nirman/cortex).
+1. Navigate to the original repository: [Cortex](https://github.com/rivetron/cortex).
 2. Click on the **New Pull Request** button.
 3. Select your fork and branch, and compare it with the `main` branch.
 4. Add a meaningful **title and description** for your changes.
@@ -155,7 +155,7 @@ cortex/
 
 If you have any questions or need clarification, feel free to:
 
-* Open an issue in the [Issues tab](https://github.com/Kosha-Nirman/cortex/issues)
+* Open an issue in the [Issues tab](https://github.com/rivetron/cortex/issues)
 * Start a discussion in your pull request
 
 Happy hacking! 🎯
