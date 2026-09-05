@@ -6,11 +6,11 @@ import (
 	"os"
 	"time"
 
+	"github.com/fatih/color"
 	"github.com/rivetron/cortex/src/config"
 	"github.com/rivetron/cortex/src/orchestrator"
 	"github.com/rivetron/cortex/src/report"
 	"github.com/rivetron/cortex/src/utils"
-	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )
 
